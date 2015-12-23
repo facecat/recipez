@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class addRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -21,11 +22,11 @@ class addRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        foodImg.layer.cornerRadius = 8.0
-        foodImg.clipsToBounds = true
-        
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        
+        foodImg.layer.cornerRadius = 8.0
+        foodImg.clipsToBounds = true
     }
     
     
@@ -38,6 +39,25 @@ class addRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     }
     
     
+    //MARK: Functions
+    func saveRecipe() {
+        let app = UIApplication.sharedApplication().delegate as! AppDelegate
+        let context = app.managedObjectContext
+        let entity = NSEntityDescription.entityForName("Recipe", inManagedObjectContext: context)!
+        let recipe = Recipe(entity: entity, insertIntoManagedObjectContext: context)
+        
+        recipe.recipeTitle = lblTitle.text
+        recipe.recipeIngredients = lblIngredients.text
+        recipe.recipeSteps = lblSteps.text
+        recipe.saveImage(foodImg.image!)
+        
+        do {
+            try context.save()
+        } catch {
+            print("fail to save")
+        }
+    }
+    
     //MARK: Actions
     @IBAction func onAddImgBtnPressed(sender: UIButton) {
         self.presentViewController(imagePicker, animated: true, completion: nil)
@@ -45,7 +65,10 @@ class addRecipeVC: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
     @IBAction func onAddNewRecipeBtnPressed(sender: UIButton) {
         // Call some func to save data
-        self.navigationController?.popViewControllerAnimated(true)
+        if let title = lblTitle.text where title != "" {
+            saveRecipe()
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
 }
