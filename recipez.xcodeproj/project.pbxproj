@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9247BE921C2AE8E1006ED923 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247BE911C2AE8E1006ED923 /* RecipeCell.swift */; };
+		9247BE951C2AEA1F006ED923 /* Recipe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247BE931C2AEA1F006ED923 /* Recipe+CoreDataProperties.swift */; };
+		9247BE961C2AEA1F006ED923 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247BE941C2AEA1F006ED923 /* Recipe.swift */; };
+		9247BE981C2AEE14006ED923 /* addRecipeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247BE971C2AEE14006ED923 /* addRecipeVC.swift */; };
 		92CCDD381C2ADE6C00209B3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CCDD371C2ADE6C00209B3E /* AppDelegate.swift */; };
 		92CCDD3A1C2ADE6C00209B3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CCDD391C2ADE6C00209B3E /* ViewController.swift */; };
 		92CCDD3D1C2ADE6C00209B3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92CCDD3B1C2ADE6C00209B3E /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9247BE911C2AE8E1006ED923 /* RecipeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
+		9247BE931C2AEA1F006ED923 /* Recipe+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Recipe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9247BE941C2AEA1F006ED923 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		9247BE971C2AEE14006ED923 /* addRecipeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addRecipeVC.swift; sourceTree = "<group>"; };
 		92CCDD341C2ADE6C00209B3E /* recipez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recipez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92CCDD371C2ADE6C00209B3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92CCDD391C2ADE6C00209B3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +45,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9247BE8D1C2AE885006ED923 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9247BE931C2AEA1F006ED923 /* Recipe+CoreDataProperties.swift */,
+				9247BE941C2AEA1F006ED923 /* Recipe.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9247BE8E1C2AE88C006ED923 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9247BE911C2AE8E1006ED923 /* RecipeCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9247BE8F1C2AE891006ED923 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92CCDD391C2ADE6C00209B3E /* ViewController.swift */,
+				9247BE971C2AEE14006ED923 /* addRecipeVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9247BE901C2AE8B7006ED923 /* Surport File */ = {
+			isa = PBXGroup;
+			children = (
+				92CCDD3E1C2ADE6C00209B3E /* recipez.xcdatamodeld */,
+				92CCDD371C2ADE6C00209B3E /* AppDelegate.swift */,
+				92CCDD411C2ADE6C00209B3E /* Assets.xcassets */,
+				92CCDD461C2ADE6C00209B3E /* Info.plist */,
+			);
+			name = "Surport File";
+			sourceTree = "<group>";
+		};
 		92CCDD2B1C2ADE6C00209B3E = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +101,12 @@
 		92CCDD361C2ADE6C00209B3E /* recipez */ = {
 			isa = PBXGroup;
 			children = (
-				92CCDD371C2ADE6C00209B3E /* AppDelegate.swift */,
-				92CCDD391C2ADE6C00209B3E /* ViewController.swift */,
 				92CCDD3B1C2ADE6C00209B3E /* Main.storyboard */,
-				92CCDD411C2ADE6C00209B3E /* Assets.xcassets */,
 				92CCDD431C2ADE6C00209B3E /* LaunchScreen.storyboard */,
-				92CCDD461C2ADE6C00209B3E /* Info.plist */,
-				92CCDD3E1C2ADE6C00209B3E /* recipez.xcdatamodeld */,
+				9247BE8F1C2AE891006ED923 /* Controller */,
+				9247BE8E1C2AE88C006ED923 /* View */,
+				9247BE8D1C2AE885006ED923 /* Model */,
+				9247BE901C2AE8B7006ED923 /* Surport File */,
 			);
 			path = recipez;
 			sourceTree = "<group>";
@@ -139,9 +183,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9247BE951C2AEA1F006ED923 /* Recipe+CoreDataProperties.swift in Sources */,
 				92CCDD3A1C2ADE6C00209B3E /* ViewController.swift in Sources */,
 				92CCDD381C2ADE6C00209B3E /* AppDelegate.swift in Sources */,
+				9247BE961C2AEA1F006ED923 /* Recipe.swift in Sources */,
+				9247BE981C2AEE14006ED923 /* addRecipeVC.swift in Sources */,
 				92CCDD401C2ADE6C00209B3E /* recipez.xcdatamodeld in Sources */,
+				9247BE921C2AE8E1006ED923 /* RecipeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +337,7 @@
 				92CCDD4B1C2ADE6C00209B3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

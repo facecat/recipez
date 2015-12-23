@@ -8,18 +8,45 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var recipes = [Recipe]()
+    
+    @IBOutlet weak var tableview: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        tableview.delegate = self
+        tableview.dataSource = self
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    //MARK: UITabelView atasource & delegate
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipes.count
     }
 
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let recipe = recipes[indexPath.row]
 
+        if let cell = tableview.dequeueReusableCellWithIdentifier("RecipeCell") as? RecipeCell {
+            cell.configureCell(recipe)
+            return cell
+        } else {
+            let newCell = RecipeCell()
+            newCell.configureCell(recipe)
+            return newCell
+        }
+    }
 }
 
